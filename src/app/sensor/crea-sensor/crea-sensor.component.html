@@ -1,0 +1,33 @@
+<div>
+  <app-lista-sensor></app-lista-sensor>
+</div>
+<br>
+<br>
+<div class="aler alert-success" *ngIf="status=='success'">
+  Registro completado correctamente
+</div>
+<div class="aler alert-danger" *ngIf="status=='error'">
+  El registro no se ha realizado correctamente
+</div>
+
+<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-10">
+  <p>
+    <label>Tipo</label>
+    <input type="text" name="tipo" #codigo="ngModel" [(ngModel)]="sensor.tipo"
+           class="form-control" required/>
+  </p>
+  <p>
+    <label>Descripcion</label>
+    <input type="text" name="descripcion" #descripcion="ngModel" [(ngModel)]="sensor.description"
+           class="form-control" required/>
+  </p>
+  <p>
+    <label>Pin Microcontrolador</label>
+    <input type="text" name="pinmicro" #pinmicro="ngModel" [(ngModel)]="sensor.pinmicro"
+           class="form-control" required/>
+  </p>
+
+  <input type="submit" value="{{title}}" class="btn btn-primary" [disabled]=
+    "!registerForm.form.valid">
+</form>
+

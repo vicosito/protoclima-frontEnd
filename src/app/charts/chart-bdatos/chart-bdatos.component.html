@@ -1,0 +1,43 @@
+<!--<div class="box-header with-border">
+  <div class="form-group voffset row">
+    <label for="" class="vertical-label col-sm-4 col-md-8 text right">Seleccione Invernadero</label>
+    <div class="col-sm-8 col-md-4">
+      <select id="id" #id="ngModel" class="hideLabel form-control" [(ngModel)]="microid" name="id"
+              (change)="selectmicro();">
+        <option selected="" value="">Seleccione....</option>
+        <option [ngValue]="c.ip" *ngFor="let c of micro">{{c.invernaderoid.name+' - '+c.ip}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div>-->
+<div class="container">
+  <div class="row">
+    <div class='col-sm-6'>
+      <div class="form-group">
+        <div class='input-group date' id='datetimepicker1'>
+          <input type='text' class="form-control" />
+          <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(function () {
+        $('#datetimepicker1').datetimepicker();
+      });
+    </script>
+  </div>
+</div>
+
+
+<div class="card">
+  <canvas id="realtime">{{ chartRealtime }} </canvas>
+  <div class="card-content">
+    <h3>Temperatura por periodo de tiempo</h3>
+    <p>Esta gráfica muestra información en tiempo real</p>
+  </div>
+</div>
+
+

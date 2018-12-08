@@ -1,0 +1,27 @@
+<div class="col-lg-12 col-lg-offset-0">
+  <h4>{{title}}</h4>
+  <table class="table table-hover">
+    <thead class="thead-default">
+    <tr>
+      <th class="hide">ID</th>
+      <th>Variable</th>
+      <th>MinLetal</th>
+      <th>MinBio</th>
+      <th>Optimo</th>
+      <th>MaxBio</th>
+      <th>MaxLetal</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pcontrol of pcontrol">
+      <td class="hide">{{pcontrol.id}}</td>
+      <td>{{pcontrol.variable}}</td>
+      <td>{{pcontrol.minletal}}</td>
+      <td>{{pcontrol.minbio}}</td>
+      <td>{{pcontrol.optimo}}</td>
+      <td>{{pcontrol.maxbio}}</td>
+      <td>{{pcontrol.maxletal}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

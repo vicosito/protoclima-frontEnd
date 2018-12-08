@@ -1,0 +1,35 @@
+<h4>{{title1}}</h4>
+<div class="aler alert-success" *ngIf="status=='success'">
+  Registro completado correctamente
+</div>
+<div class="aler alert-danger" *ngIf="status=='error'">
+  El registro no se ha realizado correctamente
+</div>
+<div class="micro-box" *ngIf="inver">
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-10">
+      <p>
+        <label>Codigo</label>
+        <input type="text" name="code" #nombre="ngModel" [(ngModel)]="inver.code"
+               class="form-control" required/>
+      </p>
+      <p>
+        <label>Nombre</label>
+        <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="inver.name"
+               class="form-control" required/>
+      </p>
+      <p>
+        <label>Producto</label>
+        <input type="text" name="producto" #producto="ngModel" [(ngModel)]="inver.product"
+               class="form-control" required/>
+      </p>
+      <p>
+        <label>Descripcion</label>
+        <input type="text" name="descripcion" #descripcion="ngModel" [(ngModel)]="inver.description"
+               class="form-control" required/>
+      </p>
+
+      <input type="submit" value="{{title}}" class="btn btn-primary" [disabled]=
+        "!registerForm.form.valid">
+    </form>
+
+</div>

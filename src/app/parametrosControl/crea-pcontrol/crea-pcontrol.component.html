@@ -1,0 +1,41 @@
+<div>
+<app-lista-pcontrol></app-lista-pcontrol>
+</div>
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" >
+  <div>
+    <label>Variable</label>
+    <input type="text" name="variable" #nombre="ngModel" [(ngModel)]="pcontrol.variable"
+           class="form-control" required/>
+  </div>
+  <div class="row">
+    <div class="col-xs-2">
+      <label>Min.Letal: </label>
+      <input type="text" name="minletal" #nombre="ngModel" [(ngModel)]="pcontrol.minletal"
+             class="form-control" required/>
+    </div>
+    <div class="col-xs-2">
+      <label>Min.Bio: </label>
+      <input type="text" name="minbio" #nombre="ngModel" [(ngModel)]="pcontrol.minbio"
+             class="form-control" required/>
+    </div>
+    <div class="col-xs-2">
+      <label>Optimo: </label>
+      <input type="text" name="optimo" #nombre="ngModel" [(ngModel)]="pcontrol.optimo"
+             class="form-control" required/>
+    </div>
+    <div class="col-xs-2">
+      <label>MaxBio</label>
+      <input type="text" name="maxbio" #nombre="ngModel" [(ngModel)]="pcontrol.maxbio"
+             class="form-control" required/>
+    </div>
+    <div class="col-xs-2">
+      <label>Max.Letal</label>
+      <input type="text" name="maxletal" #nombre="ngModel" [(ngModel)]="pcontrol.maxletal"
+             class="form-control" required/>
+    </div>
+  </div>
+  <br>
+  <input type="submit" value="{{title}}" class="btn btn-primary" [disabled]=
+    "!registerForm.form.valid">
+</form>
+

@@ -1,0 +1,45 @@
+<div class="box-header with-border">
+  <div class="form-group voffset row">
+    <label for="" class="vertical-label col-sm-4 col-md-8 text right">Seleccione Invernadero</label>
+    <div class="col-sm-8 col-md-4">
+      <select id="id" #id="ngModel" class="hideLabel form-control" [(ngModel)]="microid" name="id"
+              (change)="selectmicro();">
+        <option selected="" value="">Seleccione....</option>
+        <option [ngValue]="c.ip" *ngFor="let c of micro">{{c.invernaderoid.name+' - '+c.ip}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div>
+
+</div>
+<div class="card">
+  <canvas id="realtime">{{ chartRealtime }}</canvas>
+  <div class="card-content">
+    <h3>Temperatura y Humedad</h3>
+    <p>Esta gráfica muestra información en tiempo real</p>
+  </div>
+</div>
+
+   <div class='container'>
+    <h3>Control & Monitoreo</h3> <div class='row'>
+    <div class="col-md-2">
+      <button id='on' class='btn btn-primary btn-block' type="button" (click)="onoff()">
+        On
+      </button>
+
+
+    </div>
+    <div class="col-md-2">
+      <button id='off' class='btn btn-danger btn-block' type="button"> Off
+      </button>
+    </div>
+  </div>
+    <div class='row'>
+      <div class='col-md-3'>Temperatura:{{temperatura}}
+        <span id='temperature'></span> C</div> <div class='col-md-3'>Humedad:{{humedad}}
+      <span id='humidity'></span>%</div> </div>
+  </div>
+
+
+
