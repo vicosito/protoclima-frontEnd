@@ -20,4 +20,13 @@ export  class DataService {
     return this._http.get(this.url + 'getdata', {headers: headers})
       .pipe(map(res => res.json()));
   }
+  getDatas2(reporteData){
+    const params = JSON.stringify(reporteData);
+    const headers = new Headers({'Content-Type':'application/json'});
+
+    return this._http.post(this.url + 'getdata2',params,{headers: headers})
+      .pipe(map(res => res.json()));
+  }
+
+
 }

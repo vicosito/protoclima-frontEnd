@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Chart } from 'chart.js';
 import {DataService} from "../../services/data.service";
+
+import { Micro } from '../../models/microcontroller';
+import { MicrocontrollerService } from '../../services/microcontroller.service';
 
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
@@ -14,7 +16,7 @@ defineLocale('es', esLocale);
   selector: 'app-chart-bdatos',
   templateUrl: './chart-bdatos.component.html',
   styleUrls: ['./chart-bdatos.component.css'],
-  providers:[DataService]
+  providers:[DataService, MicrocontrollerService]
 })
 export class ChartBdatosComponent implements OnInit {
   //interval to update the chart
@@ -24,21 +26,25 @@ export class ChartBdatosComponent implements OnInit {
   private data:any;
   private temperatura;
   private fecha;
+private  fechaini: Date;
+private fechafin: Date;
 
+  public micro: Micro[];
+  public microid:string;
 
-
-  constructor(
+  constructor(http: HttpClient,
     private _DataService: DataService,
-    private _BsLocaleService : BsLocaleService
-
+    private _BsLocaleService : BsLocaleService,
+  private _microcontrollerService : MicrocontrollerService
   ) {
 
   }
 
   ngOnInit() {
 this._BsLocaleService.use('es');
-this.getData();
-this.graficar();
+this.getmicro();
+//this.getData();
+//this.graficar();
     this.chart.update();
 
   }
@@ -46,8 +52,10 @@ this.graficar();
   getData(){
     this.temperatura=new Array();
     this.fecha= new Array();
-    this._DataService.getDatas().subscribe(
+    var reporteData ={"fechaini": this.fechaini, "fechafin":this.fechafin};
+    this._DataService.getDatas2(reporteData).subscribe(
       response => {
+        console.log(response.datos);
         if(!response.datos){
 
         }else{
@@ -55,11 +63,13 @@ this.graficar();
             this.temperatura.push(response.datos[i].temperature);
             this.fecha.push(response.datos[i].time);
           }
+          this.graficar();
         }
       },
       error =>{
         console.log(<any>error);
       });
+
   }
 
   private graficar(){
@@ -113,5 +123,26 @@ this.graficar();
     });
 
   }
+
+  getmicro(){
+    this._microcontrollerService.getMicrocontroladores().subscribe(
+      response => {
+        if(!response.microcontroladores){
+
+        }else{
+          this.micro = response.microcontroladores;
+        }
+      },
+      error =>{
+        console.log(<any>error);
+      });
+  }
+selectmicro(){
+  this.microid=this.microid;
+}
+traerDatos(){
+console.log(this.fechafin,this.fechafin,this.microid);
+this.getData();
+}
 }
 
