@@ -4,6 +4,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Chart } from 'chart.js';
 import {DataService} from "../../services/data.service";
 
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { esLocale } from 'ngx-bootstrap/locale';
+
+defineLocale('es', esLocale);
+
 @Component({
   selector: 'app-chart-bdatos',
   templateUrl: './chart-bdatos.component.html',
@@ -20,13 +26,17 @@ export class ChartBdatosComponent implements OnInit {
   private fecha;
 
 
+
   constructor(
-    private _DataService: DataService
+    private _DataService: DataService,
+    private _BsLocaleService : BsLocaleService
+
   ) {
 
   }
 
   ngOnInit() {
+this._BsLocaleService.use('es');
 this.getData();
 this.graficar();
     this.chart.update();

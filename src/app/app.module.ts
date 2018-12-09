@@ -9,7 +9,6 @@ import { HttpClientModule, HttpClient } from '@angular/common/http'; //para la g
 // importar nuestros modulos
 import { InvernaderoModule } from './moduloInvernadero/invernadero.module';
 
-
 //componentes
 
 import { AppComponent } from './app.component';
@@ -40,10 +39,13 @@ import { ChartGaugeComponent } from './charts/chart-gauge/chart-gauge.component'
 import { VerMicroComponent } from './microcontrolador/ver-micro/ver-micro.component';
 import { VerSensorComponent } from './sensor/ver-sensor/ver-sensor.component';
 import { ChartBdatosComponent } from './charts/chart-bdatos/chart-bdatos.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 
 @NgModule({
   declarations: [     // aqui se cargan los nuevos pipes y nuevos componentes
     AppComponent,
+    //BsDatepickerModule,
     UpdSensorComponent,
     UpdPcontrolComponent,
     UpdMicroComponent,
@@ -77,7 +79,8 @@ import { ChartBdatosComponent } from './charts/chart-bdatos/chart-bdatos.compone
     HttpModule,
     routing,
     InvernaderoModule,
-    HttpClientModule  //para la grafica
+    HttpClientModule,
+    BsDatepickerModule.forRoot()  //para la grafica
   ],
   providers: [appRoutingProviders],  // aqui se cargan servicios
   bootstrap: [AppComponent]          // aqui se indica el componente pricipal de la aplicacion
