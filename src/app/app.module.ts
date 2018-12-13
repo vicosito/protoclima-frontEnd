@@ -40,6 +40,7 @@ import { VerMicroComponent } from './microcontrolador/ver-micro/ver-micro.compon
 import { VerSensorComponent } from './sensor/ver-sensor/ver-sensor.component';
 import { ChartBdatosComponent } from './charts/chart-bdatos/chart-bdatos.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { StateSensorComponent } from './state-sensor/state-sensor.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     ChartGaugeComponent,
     VerMicroComponent,
     VerSensorComponent,
-    ChartBdatosComponent
+    ChartBdatosComponent,
+    StateSensorComponent
   ],
   imports: [   // aqui se cargan los modulos internos o los creados por nosotros
     BrowserModule,

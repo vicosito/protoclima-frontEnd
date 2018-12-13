@@ -29,7 +29,7 @@ import  { UserEditComponent } from "./user-edit/user-edit.component";
 import { ControlSensorComponent } from "./control-sensor/control-sensor.component";
 import { ChartTemperatureComponent } from "./charts/chart-online/chart-temperature.component";
 import { ChartBdatosComponent } from "./charts/chart-bdatos/chart-bdatos.component";
-
+import { StateSensorComponent } from "./state-sensor/state-sensor.component";
 
 const appRoutes: Routes=[
   {path:'', component:LoginComponent}, // home
@@ -73,6 +73,7 @@ const appRoutes: Routes=[
 
   {path:'chart',component:ChartTemperatureComponent},
   {path:'getdata',component:ChartBdatosComponent},
+  {path:'statesensor',component:StateSensorComponent},
 
   {path:'**',component:LoginComponent} // por error
 ];

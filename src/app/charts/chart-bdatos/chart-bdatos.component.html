@@ -5,9 +5,11 @@
       <select id="id" #id="ngModel" class="hideLabel form-control" [(ngModel)]="microid" name="id"
               (change)="selectmicro();">
         <option selected="" value="">Seleccione....</option>
-        <option [ngValue]="c.ip" *ngFor="let c of micro">{{c.invernaderoid.name+' - '+c.ip}}</option>
+        <option [ngValue]="c.invernaderoid.code" *ngFor="let c of micro">{{c.invernaderoid.name+' - '+c.ip}}</option>
       </select>
     </div>
+    <br>
+    <h4>Selecione rango de fecha</h4>
     <div class="row">
       <div class="col-xs-12 col-12 col-md-4 form-group">
         <input type="text"
@@ -24,22 +26,26 @@
     </div>
   </div>
 </div>
+<br>
 
 
 
-  <div class="row">
-    <div class="col-xs-12 col-md-12">
-      <pre class="code-preview">{{fechaini}}<br>{{fechafin}}</pre>
-    </div>
-  </div>
   <div>
   <input type="button" value="Generar" (click)="traerDatos()" class="btn btn-primary">
   </div>
+<br>
 <div class="card">
-  <canvas id="realtime">{{ chartRealtime }} </canvas>
+  <canvas id="temperatura">{{ chartRealtime }} </canvas>
   <div class="card-content">
     <h3>Temperatura por periodo de tiempo</h3>
-    <p>Esta gráfica muestra información en tiempo real</p>
+    <p>de un invernadero</p>
+  </div>
+</div>
+<div class="card">
+  <canvas id="humedad">{{ hume }} </canvas>
+  <div class="card-content">
+    <h3>Humedad por periodo de tiempo</h3>
+    <p>de un invernadero</p>
   </div>
 </div>
 

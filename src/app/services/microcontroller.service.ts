@@ -28,6 +28,11 @@ SaveMicrocontrolador(registrar_micro){
     return this._http.get(this.url+'micros',{headers:headers})
       .pipe(map(res => res.json()));
   }
+  getStateByIP(ip){
+    return this._http.get(
+      'http://'+ip+'/'
+      )
+  }
 
   getMicrocontrolador(id){
     const headers = new Headers({'Content-Type':'application/json'});
@@ -56,4 +61,6 @@ SaveMicrocontrolador(registrar_micro){
     return this._http.delete(this.url + 'micro/'+id ,{headers:headers})
       .pipe(map(res => res.json()));
   }
+
+
 }
